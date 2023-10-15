@@ -1,0 +1,35 @@
+name: Generate PDF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate PDF
+        run: |
+          sudo apt-get install -y pandoc texlive-xetex
+          pandoc README.md -s -o README.pdf --pdf-engine=xelatex
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: README
+          path: README.pdf
+          
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.pdf
+          git commit -m "Add generated PDF" -a
+          git push
