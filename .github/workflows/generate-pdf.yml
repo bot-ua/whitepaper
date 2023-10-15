@@ -31,8 +31,8 @@ jobs:
           
       - name: Commit and push
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name Bot
+          git config user.email ai@bot.ua
           git add README.pdf
           git commit -m "Update generated PDF"
           git push
