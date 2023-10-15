@@ -1,4 +1,5 @@
-# Harnessing AI & Containers: Bot's Vision for Decentralized Workflow Automation [WORK IN PROGRESS]
+[WORK IN PROGRESS]
+# Harnessing AI & Containers: Bot's Vision for Decentralized Workflow Automation
 
 ## Table of Contents
 1. [Introduction](#introduction)
