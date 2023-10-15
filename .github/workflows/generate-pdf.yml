@@ -1,6 +1,7 @@
 name: Generate PDF
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -13,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate PDF
         run: |
@@ -28,8 +29,8 @@ jobs:
           
       - name: Commit and push
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add README.pdf
-          git commit -m "Add generated PDF" -a
+          git commit -m "Add generated PDF"
           git push
